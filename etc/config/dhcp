@@ -1,0 +1,81 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option rebind_protection '1'
+	option rebind_localhost '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option nonwildcard '1'
+	option localservice '0'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	list addnhosts '/etc/localdns.conf'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option ignore '1'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config domain
+	option name 'reg.vesoft-inc.com'
+	option ip '192.168.8.7'
+
+config domain
+	option name 'discuss.vesoft-inc.com'
+	option ip '192.168.8.124'
+
+config domain
+	option ip '192.168.9.4'
+	option name 'printer-hz1.vesoft-inc.com'
+
+config domain
+	option name 'printer-hz2.vesoft-inc.com'
+	option ip '192.168.9.5'
+
+config domain
+	option name 'printer-hz3.vesoft-inc.com'
+	option ip '192.168.9.6'
+
+config domain
+	option name 'dashboard.vesoft-inc.com'
+	option ip '192.168.8.9'
+
+config domain
+	option name 'dashboard-test.vesoft-inc.com'
+	option ip '192.168.8.43'
+
+config domain
+	option name 'explorer-test.vesoft-inc.com'
+	option ip '192.168.8.47'
+
+config domain
+	option name 'studio-test.vesoft-inc.com'
+	option ip '192.168.8.46'
+
+config domain
+	option name 'ngtp.vesoft-inc.com'
+	option ip '192.168.15.12'
+
+config domain
+	option name 'ngtp-test.vesoft-inc.com'
+	option ip '192.168.15.12'
+
+config domain
+	option name 'nmeter.vesoft-inc.com'
+	option ip '192.168.15.12'
+
+config domain
+	option name 'idc-nas1.vesoft-inc.com'
+	option ip '192.168.8.3'
+
+config domain
+	option name 'idc-nas2.vesoft-inc.com'
+	option ip '192.168.8.10'
+

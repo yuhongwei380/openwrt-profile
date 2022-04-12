@@ -1,0 +1,54 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd3c:fb07:758f::/48'
+	option packet_steering '1'
+
+config interface 'lan'
+	option type 'bridge'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option _orig_ifname 'eth0'
+	option _orig_bridge 'true'
+	option ifname 'eth0 eth1 eth2 eth3 eth4'
+	option ipaddr '192.168.7.2'
+	option gateway '192.168.7.254'
+	option broadcast '192.168.7.255'
+	option dns '223.5.5.5'
+
+config route
+	option interface 'lan'
+	option target '192.168.9.0'
+	option netmask '255.255.255.0'
+	option gateway '192.168.7.1'
+
+config route
+	option interface 'lan'
+	option target '192.168.10.0'
+	option netmask '255.255.255.0'
+	option gateway '192.168.7.1'
+
+config route
+	option interface 'lan'
+	option target '192.168.11.0'
+	option netmask '255.255.255.0'
+	option gateway '192.168.7.1'
+
+config route
+	option interface 'lan'
+	option target '192.168.12.0'
+	option netmask '255.255.255.0'
+	option gateway '192.168.7.1'
+
+config route
+	option interface 'lan'
+	option target '192.168.14.0'
+	option netmask '255.255.255.0'
+	option gateway '192.168.7.1'
+
