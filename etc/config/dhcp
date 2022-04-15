@@ -37,11 +37,23 @@ config domain
 
 config domain
 	option name 'printer-hz2.vesoft-inc.com'
-	option ip '192.168.9.5'
+	option ip '192.168.9.7'
 
 config domain
 	option name 'printer-hz3.vesoft-inc.com'
-	option ip '192.168.9.6'
+	option ip '192.168.9.5'
+
+config domain                                      
+        option name 'printer-hzA.vesoft-inc.com'  
+        option ip '192.168.9.4'                   
+                                                  
+config domain                                      
+        option name 'printer-hzB.vesoft-inc.com'   
+        option ip '192.168.9.5'                    
+                                                   
+config domain                                      
+        option name 'printer-hzD.vesoft-inc.com'  
+        option ip '192.168.9.7'
 
 config domain
 	option name 'dashboard.vesoft-inc.com'
