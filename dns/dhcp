@@ -43,6 +43,7 @@ config domain
 	option name 'printer-hz3.vesoft-inc.com'
 	option ip '192.168.9.5'
 
+<<<<<<< HEAD:etc/config/dhcp
 config domain                                      
         option name 'printer-hzA.vesoft-inc.com'  
         option ip '192.168.9.4'                   
@@ -54,6 +55,19 @@ config domain
 config domain                                      
         option name 'printer-hzD.vesoft-inc.com'  
         option ip '192.168.9.7'
+=======
+config domain
+	option name 'printer-hzA.vesoft-inc.com'
+	option ip '192.168.9.4'
+
+config domain
+	option name 'printer-hzB.vesoft-inc.com'
+	option ip '192.168.9.5'
+
+config domain
+	option name 'printer-hzD.vesoft-inc.com'
+	option ip '192.168.9.7'
+>>>>>>> 1c38a14dc8d648f8db471dcee231b6ebba5c83eb:dns/dhcp
 
 config domain
 	option name 'dashboard.vesoft-inc.com'
@@ -73,15 +87,15 @@ config domain
 
 config domain
 	option name 'ngtp.vesoft-inc.com'
-	option ip '192.168.15.12'
+	option ip '192.168.15.13'
 
 config domain
 	option name 'ngtp-test.vesoft-inc.com'
-	option ip '192.168.15.12'
+	option ip '192.168.15.13'
 
 config domain
 	option name 'nmeter.vesoft-inc.com'
-	option ip '192.168.15.12'
+	option ip '192.168.15.13'
 
 config domain
 	option name 'idc-nas1.vesoft-inc.com'
@@ -90,4 +104,12 @@ config domain
 config domain
 	option name 'idc-nas2.vesoft-inc.com'
 	option ip '192.168.8.10'
+
+config domain
+	option name 'status.vesoft-inc.com'
+	option ip '192.168.8.28'
+
+config domain
+	option name 'explorer.vesoft-inc.com'
+	option ip '192.168.8.9'
 
