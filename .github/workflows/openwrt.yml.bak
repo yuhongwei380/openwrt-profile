@@ -1,5 +1,5 @@
 name: openwrt
-on:
+ on:
   push:
    branches:
     - master
