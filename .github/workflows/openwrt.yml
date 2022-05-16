@@ -22,8 +22,8 @@ jobs:
         git clone https://github.com/yuhongwei380/openwrt-profile.git
         pwd
         pushd openwrt-profile/
-        sshpass -p "$PWD" scp  dns/dhcp    root@192.168.15.253:/etc/config/
-        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
+        sshpass -p "$pwd" scp  dns/dhcp    root@192.168.15.253:/etc/config/
+        sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
         
     - name: push ssr
       run: |
@@ -31,5 +31,5 @@ jobs:
         pushd tmp2
         pwd
         pushd openwrt-profile/
-        sshpass -p "$PWD" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
-        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
+        sshpass -p "$pwd" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
+        sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"

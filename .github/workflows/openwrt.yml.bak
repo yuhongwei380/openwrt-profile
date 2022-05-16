@@ -17,7 +17,8 @@ jobs:
     - name: push dns
       run: |
         pwd='${{ secrets.PWD }}'
-        pushd tmp
+        mkdir tmp2
+        pushd tmp2
         git clone https://github.com/yuhongwei380/openwrt-profile.git
         pwd
         pushd openwrt-profile/
@@ -27,7 +28,7 @@ jobs:
     - name: push ssr
       run: |
         pwd='${{ secrets.PWD }}'
-        pushd tmp
+        pushd tmp2
         pwd
         pushd openwrt-profile/
         sshpass -p "$PWD" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
