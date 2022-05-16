@@ -20,6 +20,9 @@ jobs:
        mkdir tmp
        pushd tmp
        git clone https://github.com/yuhongwei380/openwrt-profile.git
+       pwd
+    - name: scp dns
+      run:   
        pushd openwrt-profile/
        sshpass -p "$PWD" scp  dns/dhcp    root@192.168.15.253:/etc/config/
        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
@@ -30,6 +33,9 @@ jobs:
        mkdir tmp2
        pushd tmp2
        git clone https://github.com/yuhongwei380/openwrt-profile.git
+       pwd
+    - name: push ssr
+      run:
        pushd openwrt-profile/
        sshpass -p "$PWD" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
