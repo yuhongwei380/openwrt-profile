@@ -13,15 +13,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@main
+      
     - name: push dns
-      run:
+      run: 
        pwd='${{ secrets.PWD }}'
-       cd /tmp/ $$ git clone https://github.com/yuhongwei380/openwrt-profile.git
+       mkdir tmp
+       pushd tmp
+       git clone https://github.com/yuhongwei380/openwrt-profile.git
        sshpass -p "$PWD" scp  /tmp/dns/dhcp    root@192.168.15.253:/etc/config/
        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
     
-    - name: push ssrplus
+    - name: push ssr
       run:
        pwd='${{ secrets.PWD }}'
-       cd /tmp/ && sshpass -p "$PWD" scp  /tmp/ssr/black.list    root@192.168.15.253:/etc/ssrplus/
+       mkdir tmp2
+       pushd tmp2
+       sshpass -p "$PWD" scp  /tmp2/ssr/black.list    root@192.168.15.253:/etc/ssrplus/
        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
