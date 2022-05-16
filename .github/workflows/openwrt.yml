@@ -23,7 +23,6 @@ jobs:
        pushd openwrt-profile/
        sshpass -p "$PWD" scp  dns/dhcp    root@192.168.15.253:/etc/config/
        sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
-    
     - name: push ssr
       run:
        pwd='${{ secrets.PWD }}'
