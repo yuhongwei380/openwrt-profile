@@ -23,6 +23,8 @@ jobs:
         git clone https://github.com/yuhongwei380/openwrt-profile.git
         pushd openwrt-profile/
         pwd
+        ip addr
+        ping 192.168.15.253 -w 3
         sshpass -p "$pwd" scp  dns/dhcp    root@192.168.15.253:/etc/config/
         sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
       shell: bash
