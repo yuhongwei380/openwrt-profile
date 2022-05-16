@@ -18,12 +18,12 @@ jobs:
        pwd='${{ secrets.PWD }}'
        cd /tmp/
        git clone https://github.com/yuhongwei380/openwrt-profile.git
-       sshpass -p "$pwd" scp  /tmp/dns/dhcp    root@192.168.15.253:/etc/config/
-       sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
+       sshpass -p "$PWD" scp  /tmp/dns/dhcp    root@192.168.15.253:/etc/config/
+       sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
     
     - name: push ssrplus
       run:
        pwd='${{ secrets.PWD }}'
        cd /tmp/
-       sshpass -p "$pwd" scp  /tmp/ssr/black.list    root@192.168.15.253:/etc/ssrplus/
-       sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
+       sshpass -p "$PWD" scp  /tmp/ssr/black.list    root@192.168.15.253:/etc/ssrplus/
+       sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
