@@ -17,11 +17,12 @@ jobs:
     - name: push dns
       run: |
         pwd='${{ secrets.PWD }}'
+        apt install -y sshpass
         mkdir tmp2
         pushd tmp2
         git clone https://github.com/yuhongwei380/openwrt-profile.git
-        pwd
         pushd openwrt-profile/
+        pwd
         sshpass -p "$pwd" scp  dns/dhcp    root@192.168.15.253:/etc/config/
         sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
         
@@ -29,7 +30,6 @@ jobs:
       run: |
         pwd='${{ secrets.PWD }}'
         pushd tmp2
-        pwd
         pushd openwrt-profile/
         sshpass -p "$pwd" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
         sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
