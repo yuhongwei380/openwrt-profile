@@ -15,7 +15,7 @@ jobs:
       uses: actions/checkout@main
       
     - name: push dns
-       run: |
+      run:|
         pwd='${{ secrets.PWD }}'
         pushd tmp
         git clone https://github.com/yuhongwei380/openwrt-profile.git
@@ -24,7 +24,7 @@ jobs:
         sshpass -p "$PWD" scp  dns/dhcp    root@192.168.15.253:/etc/config/
         sshpass -p "$PWD" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"       
     - name: push ssr
-       run: |
+      run: |
         pwd='${{ secrets.PWD }}'
         pushd tmp
         pwd

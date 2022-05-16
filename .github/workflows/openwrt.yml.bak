@@ -27,7 +27,6 @@ jobs:
        run: |
         pwd='${{ secrets.PWD }}'
         pushd tmp
-       #git clone https://github.com/yuhongwei380/openwrt-profile.git
         pwd
         pushd openwrt-profile/
         sshpass -p "$PWD" scp  ssr/black.list     root@192.168.15.253:/etc/ssrplus/
