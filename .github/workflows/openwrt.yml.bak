@@ -17,7 +17,6 @@ jobs:
     - name: push dns
       run: 
        pwd='${{ secrets.PWD }}'
-       mkdir tmp
        pushd tmp
        git clone https://github.com/yuhongwei380/openwrt-profile.git
        pwd
@@ -30,9 +29,8 @@ jobs:
     - name: push ssr
       run:
        pwd='${{ secrets.PWD }}'
-       mkdir tmp2
-       pushd tmp2
-       git clone https://github.com/yuhongwei380/openwrt-profile.git
+       pushd tmp
+      #git clone https://github.com/yuhongwei380/openwrt-profile.git
        pwd
     - name: push ssr
       run:
