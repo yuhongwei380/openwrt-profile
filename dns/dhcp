@@ -43,7 +43,7 @@ config domain
 	option name 'printer-hz3.vesoft-inc.com'
 	option ip '192.168.9.5'
 
-<<<<<<< HEAD:etc/config/dhcp
+
 config domain                                      
         option name 'printer-hzA.vesoft-inc.com'  
         option ip '192.168.9.4'                   
