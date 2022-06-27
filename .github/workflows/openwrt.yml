@@ -1,28 +1,40 @@
 name: openwrt
- on:
+on:
   push:
    branches:
-    - master
+    - main
   pull_request:
     branches: 
-    - master
-    
- jobs:
+    - main 
+jobs:
    build:
-    runs-on: ubuntu-20.04
-
+    runs-on: self-hosted
     steps:
     - name: Checkout
       uses: actions/checkout@main
+
+      
     - name: push dns
-      run:
-       pwd='${{ secrets.PWD }}'
-       git clone https://github.com/yuhongwei380/openwrt-profile.git
-       sshpass -p "$pwd" scp  /dns/dhcp    root@192.168.15.253:/etc/config/
-       sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/dnsmasq restart"
-    
-    - name: push ssrplus
-      run:
-       pwd='${{ secrets.PWD }}'
-       sshpass -p "$pwd" scp  /ssr/black.list    root@192.168.15.253:/etc/ssrplus/
-       sshpass -p "$pwd" ssh root@192.168.15.253 "/etc/init.d/shadowsocksr restart"
+      run: |
+        pwd='${{ secrets.PWD }}'
+        ip1='${{ secrets.IP1 }}'
+        sudo apt install -y sshpass
+        mkdir tmp2
+        pushd tmp2
+        git clone https://github.com/yuhongwei380/openwrt-profile.git
+        pushd openwrt-profile/
+        pwd
+        sshpass -p "$pwd" scp  dns/dhcp    root@"$ip1":/etc/config/
+        sshpass -p "$pwd" ssh root@"$ip1" "/etc/init.d/dnsmasq restart"
+      shell: bash
+        
+    - name: push ssr
+      run: |
+        pwd='${{ secrets.PWD }}'
+        ip1='${{ secrets.IP1 }}'
+        pushd tmp2
+        pushd openwrt-profile/
+        sshpass -p "$pwd" scp  ssr/black.list     root@"$ip1":/etc/ssrplus/
+        sshpass -p "$pwd" ssh root@"$ip1" "/etc/init.d/shadowsocksr restart"
+      shell: bash
+
